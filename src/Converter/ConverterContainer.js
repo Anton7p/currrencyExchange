@@ -1,12 +1,8 @@
 import React, {useEffect, useState} from 'react';
-import Converter from "./Converter";
-import { shallowEqual, useSelector ,useDispatch} from 'react-redux'
-import {setConvertFrom} from "../redux/ConverterReducer";
+import {Converter} from "./Converter";
 
 export function ConverterContainer(props) {
-	const dispatch = useDispatch()
-	const data = useSelector(state => state.Conversion, shallowEqual)
-console.log(data)
+
 	let [valueFrom, setValueFrom] = useState("USD");
 	let [valueTo, setValueTo] = useState("EUR");
 
@@ -26,11 +22,10 @@ console.log(data)
 		if (currentObject) {
 			setTitleFrom(currentObject.Name)
 			setObjectFrom(currentObject)
-			dispatch(setConvertFrom(currentObject))
 			setAmountTo('')
 			setAmountFrom('')
 		}
-	}, [valueFrom])
+	}, [valueFrom, props])
 
 
 	useEffect(() => {
@@ -42,7 +37,7 @@ console.log(data)
 			setAmountFrom('')
 			setAmountTo('')
 		}
-	}, [valueTo]);
+	}, [valueTo,props ]);
 
 
 	const handleSelectValue = (element, id) => {
@@ -63,7 +58,7 @@ console.log(data)
 		const ValueFrom = objectFrom.Value
 		const NominalFrom = objectFrom.Nominal
 
-		return (((ValueTo / NominalTo) / (ValueFrom / NominalFrom)) * Number(amount)).toFixed(4)
+		return (((ValueTo / NominalTo) / (ValueFrom / NominalFrom)) * Number(amount)).toFixed(2)
 	}
 
 	function onClick() {

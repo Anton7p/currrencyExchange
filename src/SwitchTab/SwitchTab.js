@@ -41,8 +41,10 @@ const useStyles = makeStyles((theme) => ({
 		flexGrow: 1,
 		backgroundColor: "lightgray",
 	},
-	MuiTab:{
-		color:"white"
+	app: {
+		position: "fixed",
+		top: theme.spacing(10),
+		maxWidth: 'ls',
 	}
 
 }));
@@ -57,12 +59,12 @@ export default function SwitchTab(props) {
 
 	return (
 		 <div className={classes.root}>
-			 <AppBar position={"sticky"}>
+			 <AppBar className={classes.app}>
 				 <Tabs value={value} onChange={handleChange} aria-label="simple tabs Currency"
 						 fullWidth={true}
 						 textColor="secondary">
-					 <Tab label="Список валют"  />
-					 <Tab label="Конвертер валют"  />
+					 <Tab label="Список валют"/>
+					 <Tab label="Конвертер валют"/>
 				 </Tabs>
 			 </AppBar>
 			 <TabPanel value={value} index={0}>

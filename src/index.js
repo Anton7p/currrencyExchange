@@ -7,6 +7,7 @@ import {Provider} from "react-redux"
 import {BrowserRouter} from "react-router-dom";
 import store from "./redux/redux-store";
 import {CurrencyExchangeContainer} from "./CurrencyExchange/CurrencyExchangeContainer";
+import Main from "./Main";
 
 
 ReactDOM.render(
