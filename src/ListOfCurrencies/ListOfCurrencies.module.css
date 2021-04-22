@@ -1,0 +1,43 @@
+.card{
+    height: 90px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 5px;
+}
+.input_group__container{
+
+}
+.input_group {
+    width: 100%;
+    margin-top: 30px;
+}
+.card_item{
+    margin: 5px;
+    background-color: #9e9d9d;
+}
+.card_item__name{
+    margin: 5px;
+}
+.card_item__value{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 22px;
+    margin: 5px;
+}
+.height_arrow .MuiSvgIcon-root{height: 10px;
+position: absolute;
+    bottom: 0;
+}
+
+.card_item__value img{
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 33px;
+}
+.green{
+    color:darkgreen;
+}.red{
+    color:darkred;
+}

@@ -1,51 +1,43 @@
 import React from 'react';
-import {MultilineTextFields} from "../components/MultilineTextFields";
-import {Card, Container, Input} from "@material-ui/core";
-import classes from "./CurrencyConverter.module.css";
-import Button from "@material-ui/core/Button";
+import {Button, Container, Grid} from "@material-ui/core";
+import classes from "./Converter.module.css";
+import {ConverterCurrencyCard} from "./ConverterCurrencyCard";
+import {makeStyles} from "@material-ui/core/styles";
 
 
-function CurrencyConverter(props) {
+const useStyles = makeStyles((theme) => ({
+	root: {
+		flexGrow: 1,
+		backgroundColor: "lightgray",
+	},
+	MuiTab: {
+		color: "white"
+	}
+
+}));
+
+function Converter(props) {
+	const classes = useStyles();
 	return (
-		 <Container maxWidth="sm" className={'input_group__container'}>
-		 <div className={classes.currency_converter}>
-			 <Card className={classes.currency_choice}>
-				 <div className={classes.currency_choice__item}>
-					 <div >
-					 <span>
-						 Австралийский доллар
-					 </span>
-					 </div>
-					 <div className={classes.item_input_group}>
-						 <MultilineTextFields />
-						 <Input className={classes.item_input_group__input} placeholder="6.10" />
-					 </div>
-				 </div>
-			 </Card>
-			 <div className={classes.button}>
-				 <Button >
-					 <img src="/image/arrow_horizontal.png" alt=""/>
-				 </Button>
-			 </div>
-			 <Card className={classes.currency_choice}>
-				 <div className={classes.currency_choice__item}>
-					 <div >
-					 <span>
-						 Австралийский доллар
-					 </span>
-					 </div>
-					 <div className={classes.item_input_group}>
-						 <MultilineTextFields />
-						 <Input className={classes.item_input_group__input} placeholder="6.10" />
-					 </div>
-				 </div>
-			 </Card>
-		 </div>
-		 </Container>)
-		 ;
+		 <Container maxWidth="md" className={classes.root}>
+			 <Grid container md={12} flexGrow={1}>
+				 <Grid item flexGrow={1}>
+					 <ConverterCurrencyCard {...props} id={'from'}/>
+				 </Grid>
+
+					 <Button onClick={props.onClick}>
+						 <img src="/image/arrow_horizontal.png" alt=""/>
+					 </Button>
+
+				 <Grid item >
+					 <ConverterCurrencyCard {...props} id={'to'}/>
+				 </Grid>
+			 </Grid>
+		 </Container>
+	);
 }
 
-export default CurrencyConverter;
+export default Converter;
 
 
 

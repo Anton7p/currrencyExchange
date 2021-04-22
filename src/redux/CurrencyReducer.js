@@ -1,26 +1,32 @@
-import {createArrayWithAsteroids} from "../lib/createArrayWithAsteroids.js"
-import {i18} from "../lib/i18.js"
+const SET_CURRENCIES = 'SET_CURRENCIES'
 
 let initialState = {
-	asteroids: [],
-	asteroidsInfo: []
+	currencies: [],
 }
 
-
-const AsteroidsReducer = (state = initialState, action) => {
+const CurrencyReducer = (state = initialState, action) => {
 	switch (action.type) {
-		case 'SET_ASTEROIDS':
-			let arrayAsteroids = createArrayWithAsteroids(action.response.near_earth_objects)
-			return {...state, asteroids: [...state.asteroids, ...arrayAsteroids]};
-		case 'SET_ASTEROID_INFO':
-			return {
-				...state, asteroidsInfo: action.response
-			};
+		case SET_CURRENCIES:
+			const resultCurrencies = JSON.parse(JSON.stringify(action.currencies))
+			const currencies = Object.values(resultCurrencies)
+			currencies.map(el => {
+				el.diff = Number((el.Value - el.Previous).toFixed(4));
+				if (el.diff > 0) el.priceRise = true;
+				return el
+			})
+			return {...state, currencies: currencies};
 		default: {
 			return state;
 		}
 	}
 };
 
+export default CurrencyReducer;
 
-export default AsteroidsReducer;
+export function setCurrencies(currencies) {
+	return {
+		type: SET_CURRENCIES,
+		currencies
+	}
+}
+

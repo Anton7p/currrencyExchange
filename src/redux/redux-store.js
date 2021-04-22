@@ -1,12 +1,12 @@
-import AsteroidsReducer from "./AsteroidsReducer.js";
-import DeleteAsteroidsReducer from "./DeleteAsteroidsReducer.js";
-import {createStore,combineReducers, applyMiddleware} from 'redux';
+import CurrencyReducer from "./CurrencyReducer.js";
+import {applyMiddleware, combineReducers, createStore} from 'redux';
 import thunk from 'redux-thunk';
+import {ConvertReducer} from "./ConverterReducer";
 
 
 let reducers = combineReducers({
-	Asteroids: AsteroidsReducer,
-	DeleteAsteroids: DeleteAsteroidsReducer,
+	Currencies: CurrencyReducer,
+	Conversion: ConvertReducer
 });
 
 const store = createStore(reducers, applyMiddleware(thunk));
