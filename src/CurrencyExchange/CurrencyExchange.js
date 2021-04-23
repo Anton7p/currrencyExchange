@@ -50,7 +50,10 @@ const useStyles = makeStyles((theme) => ({
 		top: theme.spacing(22),
 		autoComplete: 'off',
 		zIndex: 999,
-
+		'& .MuiInputBase-root': {
+			fontSize: theme.spacing(5),
+			minHeight: theme.spacing(10)
+		}
 	},
 	button: {
 
@@ -128,10 +131,10 @@ export function CurrencyExchange(props) {
 						  </Container> : null}
 				 <Container>
 					 <SwitchPanel value={value} index={0}>
-						 <ConverterContainer {...props}/>
+						 <ListOfCurrencies currencies={state ? state : currencies}/>
 					 </SwitchPanel>
 					 <SwitchPanel value={value} index={1}>
-						 <ListOfCurrencies  currencies={state ? state : currencies}/>
+						 <ConverterContainer {...props}/>
 					 </SwitchPanel>
 				 </Container>
 			 </Container>

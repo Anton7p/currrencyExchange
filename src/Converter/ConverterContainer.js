@@ -22,8 +22,7 @@ export function ConverterContainer(props) {
 		if (currentObject) {
 			setTitleFrom(currentObject.Name)
 			setObjectFrom(currentObject)
-			setAmountTo('')
-			setAmountFrom('')
+
 		}
 	}, [valueFrom, props])
 
@@ -34,8 +33,6 @@ export function ConverterContainer(props) {
 		if (currentObject) {
 			setObjectTo(currentObject)
 			setTitleTo(currentObject.Name)
-			setAmountFrom('')
-			setAmountTo('')
 		}
 	}, [valueTo,props ]);
 
@@ -64,6 +61,8 @@ export function ConverterContainer(props) {
 	function onClick() {
 		setValueFrom(valueTo)
 		setValueTo(valueFrom)
+		setAmountTo(calculated(amountFrom, objectTo, objectFrom));
+		setAmountFrom(calculated(amountTo, objectTo, objectFrom));
 	}
 
 
