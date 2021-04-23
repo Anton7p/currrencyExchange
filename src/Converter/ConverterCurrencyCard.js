@@ -66,7 +66,7 @@ export function ConverterCurrencyCard(props) {
 							 <Grid item xs={6}>
 								 <Input className={classes.input}
 										  id={props.id}
-										defaultValue={props.id === 'from' ? props.amount.amountFrom : props.amount.amountTo}
+										  value={props.id === 'from' ? props.amount.amountFrom : props.amount.amountTo}
 										  onChange={(e) => props.handleInputValue(e.target.value, props.id)}
 								 />
 							 </Grid>
