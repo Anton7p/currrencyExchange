@@ -1,13 +1,8 @@
-import './CurrencyExchange.css';
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
-
 import {CurrencyAPI} from "../api/CurrencyApi";
-
-
 import {setCurrencies} from "../redux/CurrencyReducer";
 import {CurrencyExchange} from "./CurrencyExchange";
-import Main from "../Main";
 
 
 export function CurrencyExchangeContainer() {
@@ -20,10 +15,10 @@ export function CurrencyExchangeContainer() {
 			let response = await CurrencyAPI.getCurrency()
 			dispatch(setCurrencies(response))
 		})
-	},[]);
+	},[dispatch]);
 
 
 	return (
-		 <Main currencies={currencies}/>
+		 <CurrencyExchange currencies={currencies}/>
 	);
 }

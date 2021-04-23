@@ -12,7 +12,6 @@ export function ListOfCurrenciesContainer(props) {
 			setState(currencies.filter(el => el.Name.toLowerCase().indexOf(element.toLowerCase()) !== -1))
 	}
 
-
 	return (
 		 <ListOfCurrencies currencies={state ? state : currencies} onChange={inputHandler}/>
 	);

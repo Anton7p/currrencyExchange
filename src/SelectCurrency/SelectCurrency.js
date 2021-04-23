@@ -19,12 +19,13 @@ const useStyles = makeStyles((theme) => ({
 		'& .MuiInputBase-root:hover': {
 			border: 'none',
 		},
-		'& .MuiInput-underline:hover:not(.Mui-disabled):before': {
+		'& .MuiInput-underline:hover:before': {
 			border: 'none',
 		},
 		'& .MuiInput-underline:after': {
 			border: 'none'
-		}},
+		}
+	},
 }));
 
 
@@ -32,15 +33,13 @@ export function SelectCurrency(props) {
 	const classes = useStyles();
 	return (
 		 <TextField
-
 			  className={classes.root}
 			  select
-			  alignItems={'flex-end'}
 			  value={props.id === 'from' ? props.value.valueFrom : props.value.valueTo}
 			  onChange={(e) => props.handleSelectValue(e.target.value, props.id)}
 		 >
 			 {props.currencies ? props.currencies.map((option) => (
-				  <MenuItem key={option.CharCode} value={option.CharCode} >
+				  <MenuItem key={option.CharCode} value={option.CharCode}>
 					  {option.CharCode}
 				  </MenuItem>
 			 )) : null}

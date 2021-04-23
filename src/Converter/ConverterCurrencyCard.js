@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 	input: {
 		fontSize: theme.spacing(4),
-		textOverflow:'clip',
+		textOverflow: 'clip',
 		'& .MuiInputBase-input': {
 			padding: 0,
 		},
@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
 		'& .MuiInputBase-root:hover': {
 			border: 'none',
 		},
-		'& .MuiInput-underline:hover:not(.Mui-disabled):before': {
+		'& .MuiInput-underline:hover': {
 			border: 'none',
 		},
 		'& .MuiInput-underline:after': {
@@ -46,38 +46,35 @@ const useStyles = makeStyles((theme) => ({
 export function ConverterCurrencyCard(props) {
 	const classes = useStyles();
 	return (
-		 <>
-			 <Paper className={classes.paper}>
-				 <Grid container>
-					 <Grid item xs={12} className={classes.title}>
-						 <Toolbar>
-							 <Typography disabled
-											 className={classes.title}
-											 variant='h6'>
-								 {props.id === 'from' ? props.title.titleFrom : props.title.titleTo}
-							 </Typography>
-						 </Toolbar>
-					 </Grid>
-					 <Grid item xs={12} className={classes.container}>
-						 <Toolbar>
-							 <Grid container spacing={2}>
-								 <Grid item xs={6} className={classes.selector}>
-									 <SelectCurrency {...props} />
-								 </Grid>
-								 <Grid item xs={6}>
-									 <Input className={classes.input}
-											  id={props.id}
-											  value={props.id === 'from' ? props.amount.amountFrom : props.amount.amountTo}
-											  onChange={(e) => props.handleInputValue(e.target.value, props.id)}
-									 />
-								 </Grid>
-							 </Grid>
-						 </Toolbar>
-					 </Grid>
+		 <Paper className={classes.paper}>
+			 <Grid container>
+				 <Grid item xs={12} className={classes.title}>
+					 <Toolbar>
+						 <Typography disabled
+										 className={classes.title}
+										 variant='h6'>
+							 {props.id === 'from' ? props.title.titleFrom : props.title.titleTo}
+						 </Typography>
+					 </Toolbar>
 				 </Grid>
-			 </Paper>
-		 </>
-
+				 <Grid item xs={12} className={classes.container}>
+					 <Toolbar>
+						 <Grid container spacing={2}>
+							 <Grid item xs={6} className={classes.selector}>
+								 <SelectCurrency {...props} />
+							 </Grid>
+							 <Grid item xs={6}>
+								 <Input className={classes.input}
+										  id={props.id}
+										defaultValue={props.id === 'from' ? props.amount.amountFrom : props.amount.amountTo}
+										  onChange={(e) => props.handleInputValue(e.target.value, props.id)}
+								 />
+							 </Grid>
+						 </Grid>
+					 </Toolbar>
+				 </Grid>
+			 </Grid>
+		 </Paper>
 	);
 }
 

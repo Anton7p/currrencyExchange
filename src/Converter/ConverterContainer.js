@@ -3,8 +3,8 @@ import {Converter} from "./Converter";
 
 export function ConverterContainer(props) {
 
-	let [valueFrom, setValueFrom] = useState("USD");
-	let [valueTo, setValueTo] = useState("EUR");
+	let [valueFrom, setValueFrom] = useState('USD');
+	let [valueTo, setValueTo] = useState('EUR');
 
 	let [amountFrom, setAmountFrom] = useState();
 	let [amountTo, setAmountTo] = useState();
