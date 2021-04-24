@@ -1,9 +1,10 @@
 import React from 'react';
-import {Button, Toolbar} from "@material-ui/core";
+import { Toolbar} from "@material-ui/core";
 import {useStyles} from "./StyleListOfCurrencies";
 import {setMode} from "../redux/SwitchTabsReduser";
 import {useDispatch} from "react-redux";
 import {setConvertTo} from "../redux/ConverterReducer";
+import Typography from "@material-ui/core/Typography";
 
 export function CardInfoValue(props) {
 	const dispatch = useDispatch()
@@ -15,11 +16,11 @@ export function CardInfoValue(props) {
 	};
 	return (
 		 <Toolbar className={classes.container}>
-				 <Button   variant="contained"
-							  className={classes.currency}
-							  onClick={handleClick}>
-					 {(props.Value).toFixed(2)}RUB
-				 </Button>
+			 <Typography
+				  className={classes.currency}
+				  onClick={handleClick}>
+				 {(props.Value).toFixed(2)}RUB
+			 </Typography>
 		 </Toolbar>
 	);
 }
