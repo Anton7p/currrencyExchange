@@ -7,6 +7,8 @@ import {ConverterContainer} from "../Converter/ConverterContainer";
 import {ListOfCurrenciesContainer} from "../ListOfCurrencies/ListOfCurrenciesContainer";
 import {SwitchPanel} from "../SwitchPanel/SwichPanel";
 import {ListOfCurrencies} from "../ListOfCurrencies/ListOfCurrencies";
+import {useDispatch, useSelector} from "react-redux";
+import {setMode} from "../redux/SwitchTabsReduser";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -81,15 +83,18 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export function CurrencyExchange(props) {
+	const dispatch = useDispatch()
 	const classes = useStyles();
-	const [value, setValue] = React.useState(0);
+
+	const value = useSelector(state => state.ActualTab.actual)
 	const handleChange = (event, newValue) => {
-		setValue(newValue);
+		dispatch(setMode(newValue))
 	};
+
 	const {currencies} = props
 	const [state, setState] = useState();
 
-	function inputHandler(element) {
+	function onChange(element) {
 		if (element.charCodeAt() > 61 && element.charCodeAt() < 122) {
 			setState(currencies.filter(el => el.CharCode.toLowerCase().indexOf(element.toLowerCase()) !== -1))
 		} else
@@ -115,8 +120,7 @@ export function CurrencyExchange(props) {
 				 </Paper>
 			 </Container>
 			 <Container className={classes.root} maxWidth={'md'}>
-				 {
-					 value === 1 ?
+				 {value === 1 ?
 						  <Container className={classes.input}>
 							  <Paper>
 								  <TextField id="filled-search"
@@ -125,7 +129,7 @@ export function CurrencyExchange(props) {
 												 type="search"
 												 variant="filled"
 												 avtocomplite='off'
-												 onChange={(e) => inputHandler(e.target.value)}
+												 onChange={(e) => onChange(e.target.value)}
 								  />
 							  </Paper>
 						  </Container> : null}
