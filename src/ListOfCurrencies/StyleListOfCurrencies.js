@@ -29,6 +29,8 @@ export const useStyles = makeStyles((theme) => ({
 	},
 	currency: {
 		fontSize: theme.spacing(5),
+		padding:0,
+		lineHeight: 0,
 	},
 	icon: {
 		transform: 'rotate(90deg)',
