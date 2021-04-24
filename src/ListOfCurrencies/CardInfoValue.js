@@ -15,7 +15,9 @@ export function CardInfoValue(props) {
 	};
 	return (
 		 <Toolbar className={classes.container}>
-				 <Button className={classes.currency} onClick={handleClick}>
+				 <Button   variant="contained"
+							  className={classes.currency}
+							  onClick={handleClick}>
 					 {(props.Value).toFixed(2)}RUB
 				 </Button>
 		 </Toolbar>
