@@ -8,6 +8,7 @@ import {ListOfCurrencies} from "../ListOfCurrencies/ListOfCurrencies";
 import {ConverterContainer} from "../Converter/ConverterContainer";
 
 
+
 export function PageContent(props) {
 	const classes = useStyles();
 	const actual = useSelector(state => state.ActualTab.actual)
@@ -21,7 +22,7 @@ export function PageContent(props) {
 					 <ListOfCurrencies {...props}/>
 				 </SwitchPanel>
 				 <SwitchPanel value={actual} index={1}>
-					 <ConverterContainer {...props}/>
+					 <ConverterContainer{...props}/>
 				 </SwitchPanel>
 			 </Container>
 		 </Container>

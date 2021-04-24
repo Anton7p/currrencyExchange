@@ -7,17 +7,17 @@ import {Grid} from "@material-ui/core";
 
 export function CardIfo(props) {
 	return (
-		 <Grid container xs={12}>
+		 <Grid container >
 			 <Grid item xs={3}>
 				 <CardInfoCharCode {...props}/>
 			 </Grid>
-			 <Grid  >
+			 <Grid item>
 				 <img src={img} alt=""/>
 			 </Grid>
-			 <Grid item xs={4} >
+			 <Grid item xs={4}>
 				 <CardInfoValue  {...props}/>
 			 </Grid>
-			 <Grid item xs={4} >
+			 <Grid item xs={4}>
 				 <CardInfoDiff {...props}/>
 			 </Grid>
 		 </Grid>

@@ -4,7 +4,7 @@ let initialState = {
 	actual: 0,
 }
 
-const SwitchTabsReducer = (state = initialState, action) => {
+export  const SwitchTabsReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case SET_ACTUAL:
 			return {...state, actual: action.mode};
@@ -14,7 +14,6 @@ const SwitchTabsReducer = (state = initialState, action) => {
 	}
 };
 
-export default SwitchTabsReducer;
 
 export function setMode(mode) {
 	return {

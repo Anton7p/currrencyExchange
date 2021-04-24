@@ -1,93 +1,60 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import {Converter} from "./Converter";
+import {useDispatch, useSelector} from "react-redux";
+import {setConvert, setConvertFrom, setConvertTo} from "../redux/ConverterReducer";
+import {setAmountFrom, setAmountTo} from "../redux/AmountReduser";
+import {calcAmount} from "../lib/calculated";
 
 export function ConverterContainer(props) {
-
-	let [valueFrom, setValueFrom] = useState('USD');
-	let [valueTo, setValueTo] = useState('EUR');
-
-	let [amountFrom, setAmountFrom] = useState();
-	let [amountTo, setAmountTo] = useState();
-
-	let [titleFrom, setTitleFrom] = useState('Доллар США');
-	let [titleTo, setTitleTo] = useState('Евро');
-
-	let [objectFrom, setObjectFrom] = useState();
-	let [objectTo, setObjectTo] = useState();
+	const dispatch = useDispatch()
+	const {convertFrom, convertTo, convert} = useSelector((state => state.Conversion))
+	const {amountFrom, amountTo} = useSelector((state => state.Amount))
 
 
 	useEffect(() => {
-		let currentObject = props.currencies.filter(el => el.CharCode === valueFrom)[0];
-
-		if (currentObject) {
-			setTitleFrom(currentObject.Name);
-			setObjectFrom(currentObject);
-			setAmountFrom('');
-			setAmountTo('');
-		}
-	}, [valueFrom, props])
+		dispatch(setConvert(props.currencies))
+	}, [props]);
 
 
-	useEffect(() => {
-		let currentObject = props.currencies.filter(el => el.CharCode === valueTo)[0];
-
-		if (currentObject) {
-			setObjectTo(currentObject);
-			setTitleTo(currentObject.Name);
-
-		}
-	}, [valueTo, props]);
-
-
-	const handleSelectValue = (element, id) => {
+	function handleInputValue(element, id) {
 		if (id === 'from') {
-			setValueFrom(element);
+			dispatch(setAmountFrom(element))
+			dispatch(setAmountTo(calcAmount(convertFrom, convertTo, element)))
 		}
 		if (id === 'to') {
-			setValueTo(element);
-
+			dispatch(setAmountTo(element))
+			dispatch(setAmountFrom(calcAmount(convertTo, convertFrom, element)))
 		}
 	}
 
-	function calculated(amount, objectTo, objectFrom) {
-		if (!amount) return
-
-		const ValueTo = objectTo.Value;
-		const NominalTo = objectTo.Nominal;
-
-		const ValueFrom = objectFrom.Value;
-		const NominalFrom = objectFrom.Nominal;
-
-		return (((ValueTo / NominalTo) / (ValueFrom / NominalFrom)) * Number(amount)).toFixed(2);
-	}
-
-	function onClick() {
-		setValueFrom(valueTo);
-		setValueTo(valueFrom);
-		setAmountTo(calculated(amountFrom, objectTo, objectFrom));
-	}
-
-
-	const handleInputValue = (element, id) => {
+	function handleSelectValue(element, id) {
+		const currentObject = convert.filter(el => el.CharCode === element)
 		if (id === 'from') {
-			setAmountFrom(element);
-			setAmountTo(calculated(element, objectTo, objectFrom));
-		} else if (id === 'to') {
-			setAmountTo(element);
-			setAmountFrom(calculated(element, objectTo, objectFrom));
+			dispatch(setConvertFrom(...currentObject))
+			dispatch(setAmountTo(calcAmount(...currentObject, convertTo, amountFrom)))
+		}
+		if (id === 'to') {
+			dispatch(setConvertTo(...currentObject))
+			dispatch(setAmountTo(calcAmount(convertFrom, ...currentObject, amountFrom)))
 		}
 	}
 
+	function handleClick() {
+		dispatch(setConvertTo(convertFrom))
+		dispatch(setConvertFrom(convertTo))
+		dispatch(setAmountTo(amountFrom))
+		dispatch(setAmountFrom(amountTo))
+	}
 
 	return (
-		 <Converter currencies={props.currencies}
-						onClick={onClick}
-						handleSelectValue={handleSelectValue}
+		 <Converter currencies={convert}
+						convertFrom={convertFrom}
+						convertTo={convertTo}
+						amountFrom={amountFrom}
+						amountTo={amountTo}
 						handleInputValue={handleInputValue}
-						value={{valueFrom, valueTo}}
-						amount={{amountFrom, amountTo}}
-						title={{titleFrom, titleTo}}
-
+						handleSelectValue={handleSelectValue}
+						handleClick={handleClick}
 		 />
 	);
 }

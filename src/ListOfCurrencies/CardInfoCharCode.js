@@ -9,8 +9,7 @@ export function CardInfoCharCode(props) {
 			 <Toolbar>
 				 <Typography disabled
 								 variant='h6'
-								 className={classes.currency}
-				 >
+								 className={classes.currency}>
 					 {props.Nominal}{props.CharCode}
 				 </Typography>
 			 </Toolbar>

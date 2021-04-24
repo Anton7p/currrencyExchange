@@ -10,12 +10,12 @@ export function ConverterCardInputGroup(props) {
 		 <Toolbar>
 			 <Grid container spacing={2}>
 				 <Grid item xs={6} className={classes.selector}>
-					 <SelectCurrency {...props} />
+					 <SelectCurrency {...props}/>
 				 </Grid>
 				 <Grid item xs={6}>
 					 <Input className={classes.input}
 							  id={props.id}
-							  value={props.id === 'from' ? props.amount.amountFrom : props.amount.amountTo}
+							  value={props.id === 'from' ? props.amountFrom : props.amountTo}
 							  onChange={(e) => props.handleInputValue(parseNumber(e.target.value), props.id)}
 					 />
 				 </Grid>

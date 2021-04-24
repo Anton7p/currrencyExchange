@@ -15,10 +15,10 @@ export function Converter(props) {
 					 <ConverterCard {...props} id={'from'}/>
 				 </Grid>
 				 <Grid item sm={2} className={classes.grid}>
-					 <Button onClick={props.onClick}
-								variant="contained"
-								className={classes.button}>
-						 <HeightIcon className={classes.icon}/>
+					 <Button
+						  variant="contained"
+						  className={classes.button}>
+						 <HeightIcon className={classes.icon} onClick={props.handleClick}/>
 					 </Button>
 				 </Grid>
 				 <Grid item sm={5}>
