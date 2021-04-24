@@ -3,7 +3,7 @@ import {Converter} from "./Converter";
 import {useDispatch, useSelector} from "react-redux";
 import {setConvert, setConvertFrom, setConvertTo} from "../redux/ConverterReducer";
 import {setAmountFrom, setAmountTo} from "../redux/AmountReduser";
-import {calcAmount} from "../lib/calculated";
+import {calculated} from "../lib/calculated";
 
 export function ConverterContainer(props) {
 	const dispatch = useDispatch()
@@ -19,11 +19,11 @@ export function ConverterContainer(props) {
 	function handleInputValue(element, id) {
 		if (id === 'from') {
 			dispatch(setAmountFrom(element))
-			dispatch(setAmountTo(calcAmount(convertFrom, convertTo, element)))
+			dispatch(setAmountTo(calculated(convertFrom, convertTo, element)))
 		}
 		if (id === 'to') {
 			dispatch(setAmountTo(element))
-			dispatch(setAmountFrom(calcAmount(convertTo, convertFrom, element)))
+			dispatch(setAmountFrom(calculated(convertTo, convertFrom, element)))
 		}
 	}
 
@@ -31,11 +31,11 @@ export function ConverterContainer(props) {
 		const currentObject = convert.filter(el => el.CharCode === element)
 		if (id === 'from') {
 			dispatch(setConvertFrom(...currentObject))
-			dispatch(setAmountTo(calcAmount(...currentObject, convertTo, amountFrom)))
+			dispatch(setAmountTo(calculated(...currentObject, convertTo, amountFrom)))
 		}
 		if (id === 'to') {
 			dispatch(setConvertTo(...currentObject))
-			dispatch(setAmountTo(calcAmount(convertFrom, ...currentObject, amountFrom)))
+			dispatch(setAmountTo(calculated(convertFrom, ...currentObject, amountFrom)))
 		}
 	}
 
