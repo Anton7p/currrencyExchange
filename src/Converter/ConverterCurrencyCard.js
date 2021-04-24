@@ -3,6 +3,7 @@ import {Grid, Input, Paper, Toolbar} from "@material-ui/core";
 import {SelectCurrency} from "../SelectCurrency/SelectCurrency";
 import {makeStyles} from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
+import {parseNumber} from "../lib/parse";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -67,7 +68,7 @@ export function ConverterCurrencyCard(props) {
 								 <Input className={classes.input}
 										  id={props.id}
 										  value={props.id === 'from' ? props.amount.amountFrom : props.amount.amountTo}
-										  onChange={(e) => props.handleInputValue(e.target.value, props.id)}
+										  onChange={(e) => props.handleInputValue(parseNumber(e.target.value), props.id)}
 								 />
 							 </Grid>
 						 </Grid>
@@ -79,19 +80,3 @@ export function ConverterCurrencyCard(props) {
 }
 
 
-//
-// <div className={classes.currency_choice__item}>
-// 	<div>
-// 				 	 <span>
-// 				 		{props.id === 'from' ? props.title.titleFrom : props.title.titleTo}
-// 				 	 </span>
-// 	</div>
-// 	<div className={classes.item_input_group}>
-// 		<SelectCurrency {...props}/>
-// <Input className={classes.input}
-// 		 id={props.id}
-// 		 value={props.id === 'from' ? props.amount.amountFrom : props.amount.amountTo}
-// 		 onChange={(e) => props.handleInputValue(e.target.value, props.id)}/>
-//
-// 	</div>
-// </div>

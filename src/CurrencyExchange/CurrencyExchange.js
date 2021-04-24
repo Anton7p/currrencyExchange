@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {AppBar, Container, Paper, TextField, Toolbar, Typography} from "@material-ui/core";
 import {makeStyles} from "@material-ui/core/styles";
 import Tabs from "@material-ui/core/Tabs";
@@ -7,6 +7,7 @@ import {ConverterContainer} from "../Converter/ConverterContainer";
 import {ListOfCurrenciesContainer} from "../ListOfCurrencies/ListOfCurrenciesContainer";
 import {SwitchPanel} from "../SwitchPanel/SwichPanel";
 import {ListOfCurrencies} from "../ListOfCurrencies/ListOfCurrencies";
+import {parseString} from "../lib/parse";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -83,22 +84,26 @@ const useStyles = makeStyles((theme) => ({
 export function CurrencyExchange(props) {
 	const classes = useStyles();
 	const [value, setValue] = React.useState(0);
+	const [input, setInput] = React.useState('');
 	const handleChange = (event, newValue) => {
 		setValue(newValue);
 	};
 	const {currencies} = props
 	const [state, setState] = useState();
 
-	function inputHandler(element) {
-		if (element.charCodeAt() > 61 && element.charCodeAt() < 122) {
-			setState(currencies.filter(el => el.CharCode.toLowerCase().indexOf(element.toLowerCase()) !== -1))
-		} else
-			setState(currencies.filter(el => el.Name.toLowerCase().indexOf(element.toLowerCase()) !== -1))
-	}
+	useEffect(() => {
+		setState(currencies)
+	}, [props]);
+
+	useEffect(() => {
+		if (input.charCodeAt() > 61 && input.charCodeAt() < 122) {
+			setState(currencies.filter(el => el.CharCode.toLowerCase().indexOf(input.toLowerCase()) !== -1))
+		} else setState(currencies.filter(el => el.Name.toLowerCase().indexOf(input.toLowerCase()) !== -1))
+	}, [input]);
 
 
 	return (
-		 <Container className={value === 1 ? classes.root1 : classes.root} maxWidth={'lg'}>
+		 <Container className={value === 0 ? classes.root1 : classes.root} maxWidth={'lg'}>
 			 <Container className={classes.content}>
 				 <AppBar position={"static"} className={classes.header}>
 					 <Toolbar>
@@ -116,7 +121,7 @@ export function CurrencyExchange(props) {
 			 </Container>
 			 <Container className={classes.root} maxWidth={'md'}>
 				 {
-					 value === 1 ?
+					 value === 0 ?
 						  <Container className={classes.input}>
 							  <Paper>
 								  <TextField id="filled-search"
@@ -125,7 +130,8 @@ export function CurrencyExchange(props) {
 												 type="search"
 												 variant="filled"
 												 avtocomplite='off'
-												 onChange={(e) => inputHandler(e.target.value)}
+												 value={input}
+												 onChange={(e) => setInput(parseString(e.target.value))}
 								  />
 							  </Paper>
 						  </Container> : null}

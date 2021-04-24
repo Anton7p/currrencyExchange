@@ -17,30 +17,33 @@ export function ConverterContainer(props) {
 
 
 	useEffect(() => {
-		let currentObject = props.currencies.filter(el => el.CharCode === valueFrom)[0]
+		let currentObject = props.currencies.filter(el => el.CharCode === valueFrom)[0];
 
 		if (currentObject) {
-			setTitleFrom(currentObject.Name)
-			setObjectFrom(currentObject)
-
+			setTitleFrom(currentObject.Name);
+			setObjectFrom(currentObject);
+			setAmountFrom('');
+			setAmountTo('');
 		}
 	}, [valueFrom, props])
 
 
 	useEffect(() => {
-		let currentObject = props.currencies.filter(el => el.CharCode === valueTo)[0]
+		let currentObject = props.currencies.filter(el => el.CharCode === valueTo)[0];
 
 		if (currentObject) {
-			setObjectTo(currentObject)
-			setTitleTo(currentObject.Name)
+			setObjectTo(currentObject);
+			setTitleTo(currentObject.Name);
+
 		}
-	}, [valueTo,props ]);
+	}, [valueTo, props]);
 
 
 	const handleSelectValue = (element, id) => {
 		if (id === 'from') {
 			setValueFrom(element);
-		} else if (id === 'to') {
+		}
+		if (id === 'to') {
 			setValueTo(element);
 
 		}
@@ -49,20 +52,19 @@ export function ConverterContainer(props) {
 	function calculated(amount, objectTo, objectFrom) {
 		if (!amount) return
 
-		const ValueTo = objectTo.Value
-		const NominalTo = objectTo.Nominal
+		const ValueTo = objectTo.Value;
+		const NominalTo = objectTo.Nominal;
 
-		const ValueFrom = objectFrom.Value
-		const NominalFrom = objectFrom.Nominal
+		const ValueFrom = objectFrom.Value;
+		const NominalFrom = objectFrom.Nominal;
 
-		return (((ValueTo / NominalTo) / (ValueFrom / NominalFrom)) * Number(amount)).toFixed(2)
+		return (((ValueTo / NominalTo) / (ValueFrom / NominalFrom)) * Number(amount)).toFixed(2);
 	}
 
 	function onClick() {
-		setValueFrom(valueTo)
-		setValueTo(valueFrom)
+		setValueFrom(valueTo);
+		setValueTo(valueFrom);
 		setAmountTo(calculated(amountFrom, objectTo, objectFrom));
-		setAmountFrom(calculated(amountTo, objectTo, objectFrom));
 	}
 
 
