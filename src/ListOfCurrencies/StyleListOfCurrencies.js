@@ -17,13 +17,13 @@ export const useStyles = makeStyles((theme) => ({
 		alignItems: 'flex-end',
 	},
 	icon: {
-		[theme.breakpoints.up('xs')]: {
+		[theme.breakpoints.up('sm')]: {
 			display: 'none',
 		},
 
 		transform: 'rotate(90deg)',
-		height: theme.spacing(3),
-		fontSize: theme.spacing(2),
+		fontSize: theme.spacing(2.6),
+		marginBottom: theme.spacing(1),
 	},
 	img: {
 		[theme.breakpoints.down('xs')]: {
@@ -42,9 +42,10 @@ export const useStyles = makeStyles((theme) => ({
 		[theme.breakpoints.between('sm', 'sm')]: {
 			maxWidth: theme.spacing(58),
 		},
-		[theme.breakpoints.between('md', 'md')]: {
-			maxWidth: theme.spacing(70),
+		[theme.breakpoints.up('md')]: {
+			maxWidth: theme.spacing(60),
 		},
+
 		justifyContent: 'space-between'
 	},
 	currency: {

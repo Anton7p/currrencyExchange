@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useMemo} from 'react';
 import {Converter} from "./Converter";
 import {useDispatch, useSelector} from "react-redux";
 import {setConvert, setConvertFrom, setConvertTo} from "../redux/ConverterReducer";
@@ -21,10 +21,10 @@ export function ConverterContainer(props) {
 			dispatch(setAmountFrom(element))
 			dispatch(setAmountTo(calculated(convertFrom, convertTo, element)))
 		}
-		if (id === 'to') {
-			dispatch(setAmountTo(element))
-			dispatch(setAmountFrom(calculated(convertTo, convertFrom, element)))
-		}
+		// if (id === 'to') {
+		// 	dispatch(setAmountTo(element))
+		// 	dispatch(setAmountFrom(calculated(convertTo, convertFrom, element)))
+		// }
 	}
 
 	function handleSelectValue(element, id) {
