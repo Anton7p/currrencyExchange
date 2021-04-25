@@ -1,8 +1,8 @@
 import React from 'react';
-import {Grid, Paper, Toolbar} from "@material-ui/core";
+import {Grid, Paper} from "@material-ui/core";
 import {useStyles} from "./StyleListOfCurrencies";
 import {CardTitle} from "./CardTitle";
-import { CardInfo} from "./CardInfo";
+import {CardInfo} from "./CardInfo";
 
 
 export function CardOfCurrency(props) {

@@ -1,5 +1,4 @@
 import React from 'react';
-import {Toolbar} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import ArrowUpwardIcon from "@material-ui/icons/ArrowUpward";
 import ArrowDownwardIcon from "@material-ui/icons/ArrowDownward";

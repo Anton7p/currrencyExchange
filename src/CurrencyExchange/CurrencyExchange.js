@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import {Container} from "@material-ui/core";
-import {useSelector} from "react-redux";
 import {useStyles} from "./StyleCurrencyExchange";
 import {Header} from "./Header";
 import {TabsPanelTitle} from "../SwitchTabs/TabsPanelTitle";
@@ -10,7 +9,6 @@ import {PageContent} from "./PageContent";
 export function CurrencyExchange(props) {
 	const classes = useStyles();
 	const {currencies} = props
-	const actual = useSelector(state => state.ActualTab.actual)
 
 	const [state, setState] = useState();
 
