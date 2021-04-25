@@ -8,14 +8,14 @@ import {useStyles} from "./StyleListOfCurrencies";
 function CardInfoDiff(props) {
 	const classes = useStyles();
 	return (
-
+		 <Toolbar className={classes.container}>
 			 <Typography className={props.priceRise ? classes.green : classes.red}>
 				 {props.priceRise ?
 					  <ArrowUpwardIcon className={classes.arrow} /> :
 					  <ArrowDownwardIcon className={classes.arrow}/>}
 				 {props.diff}
 			 </Typography>
-
+		 </Toolbar>
 	);
 }
 

@@ -9,19 +9,18 @@ import {useStyles} from "./StyleListOfCurrencies";
 import Box from "@material-ui/core/Box";
 
 
-export function CardInfo(props) {
+export function CardIfo(props) {
 	const classes = useStyles();
 	return (
 		 <Toolbar>
-			 <Grid container className={classes.container}>
-				 <Grid container  className={classes.value}>
-					 <CardInfoCharCode {...props}/>
-					 <HeightIcon className={classes.icon}/>
-					 {/*<img src={img} alt="" className={classes.icon}/>*/}
-					 <CardInfoValue  {...props}/>
-				 </Grid>
-				 <CardInfoDiff {...props} className={classes.diff}/>
-			 </Grid>
+			 <Box>
+				 <CardInfoCharCode {...props}/>
+				 <img src={img} alt="" className={classes.icon}/>
+				 <CardInfoValue  {...props}/>
+			 </Box>
+			 <Box>
+				 <CardInfoDiff {...props}/>
+			 </Box>
 		 </Toolbar>
 	);
 }

@@ -7,13 +7,15 @@ export const useStyles = makeStyles((theme) => ({
 		position: "relative",
 		backgroundColor: theme.palette.info.light,
 		padding: 0,
+
 	},
 	content: {
 		backgroundColor: theme.palette.info.light,
 		position: 'sticky',
 		padding: 0,
 		top: 0,
-		zIndex: 1000
+		zIndex: 1000,
+
 	},
 	header: {
 		minHeight: theme.spacing(10),
@@ -51,7 +53,7 @@ export const useStyles = makeStyles((theme) => ({
 		zIndex: 999,
 	},
 	title: {
-		fontSize: theme.spacing(3),
+		fontSize: theme.spacing(2),
 	},
 	tabs: {
 		width: '100%'
@@ -60,4 +62,7 @@ export const useStyles = makeStyles((theme) => ({
 	text: {
 		fontSize: theme.spacing(2),
 	},
+	card:{
+		padding:0,
+	}
 }));

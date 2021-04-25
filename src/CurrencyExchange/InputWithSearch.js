@@ -23,7 +23,7 @@ export function InputWithSearch({setState}) {
 			 <Paper>
 				 <TextField id="filled-search"
 								fullWidth={true}
-								label="Валюта"
+								label="Поиск валюты"
 								type="search"
 								variant="filled"
 								avtocomplite='off'

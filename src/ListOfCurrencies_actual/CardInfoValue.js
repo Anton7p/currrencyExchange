@@ -15,11 +15,12 @@ export function CardInfoValue(props) {
 		dispatch(setConvertTo(props))
 	};
 	return (
-
+		 <Toolbar className={classes.container}>
 			 <Typography
 				  className={classes.currency}
 				  onClick={handleClick}>
 				 {(props.Value).toFixed(2)}RUB
 			 </Typography>
+		 </Toolbar>
 	);
 }

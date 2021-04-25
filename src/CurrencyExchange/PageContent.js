@@ -17,7 +17,7 @@ export function PageContent(props) {
 	return (
 		 <Container className={classes.root} maxWidth={'md'}>
 			 {actual === 0 ? <InputWithSearch {...props}/> : null}
-			 <Container>
+			 <Container className={classes.card}>
 				 <SwitchPanel value={actual} index={0}>
 					 <ListOfCurrencies {...props}/>
 				 </SwitchPanel>

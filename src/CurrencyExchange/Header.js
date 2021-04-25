@@ -10,7 +10,7 @@ export function Header(props) {
 		 <Container className={classes.content}>
 			 <AppBar position={"static"} className={classes.header}>
 				 <Toolbar>
-					 <Typography className={classes.title} variant='h3'>Currency Exchange</Typography>
+					 <Typography className={classes.title} >Currency Exchange</Typography>
 				 </Toolbar>
 			 </AppBar>
 		 </Container>
