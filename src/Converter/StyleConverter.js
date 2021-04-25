@@ -3,7 +3,7 @@ import {makeStyles} from "@material-ui/core/styles";
 export const useStyles = makeStyles((theme) => ({
 	root: {
 		[theme.breakpoints.down('xs')]: {
-			marginTop: theme.spacing(11),
+			marginTop: theme.spacing(7),
 		},
 		display: "flex",
 		marginTop: theme.spacing(18),
