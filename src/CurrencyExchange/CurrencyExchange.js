@@ -19,7 +19,7 @@ export function CurrencyExchange(props) {
 	}, [props]);
 
 	return (
-		 <Container className={actual === 0 ? classes.root_actual : classes.root} maxWidth={'lg'}>
+		 <Container className={classes.root} maxWidth={'lg'}>
 			 <Container className={classes.content}>
 				 <Header/>
 				 <TabsPanelTitle/>

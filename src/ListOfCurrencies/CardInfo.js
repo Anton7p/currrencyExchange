@@ -3,23 +3,24 @@ import {CardInfoCharCode} from "./CardInfoCharCode";
 import {CardInfoValue} from "./CardInfoValue";
 import CardInfoDiff from "./CardInfoDiff";
 import img from '../image/arrow.png'
-import {Grid} from "@material-ui/core";
+import {Button, Grid, Toolbar} from "@material-ui/core";
+import HeightIcon from "@material-ui/icons/Height";
+import {useStyles} from "./StyleListOfCurrencies";
+import Box from "@material-ui/core/Box";
+
 
 export function CardIfo(props) {
+	const classes = useStyles();
 	return (
-		 <Grid container >
-			 <Grid item xs={3}>
+		 <Toolbar>
+			 <Box>
 				 <CardInfoCharCode {...props}/>
-			 </Grid>
-			 <Grid item>
-				 <img src={img} alt=""/>
-			 </Grid>
-			 <Grid item xs={4}>
+				 <img src={img} alt="" className={classes.icon}/>
 				 <CardInfoValue  {...props}/>
-			 </Grid>
-			 <Grid item xs={4}>
+			 </Box>
+			 <Box>
 				 <CardInfoDiff {...props}/>
-			 </Grid>
-		 </Grid>
+			 </Box>
+		 </Toolbar>
 	);
 }

@@ -6,10 +6,8 @@ import {useStyles} from "./StyleListOfCurrencies";
 export function CardInfoCharCode(props) {
 	const classes = useStyles();
 	return (
-			 <Toolbar>
-				 <Typography disabled
-								 variant='h6'
-								 className={classes.currency}>
+			 <Toolbar className={classes.toolbar}>
+				 <Typography className={classes.currency}>
 					 {props.Nominal}{props.CharCode}
 				 </Typography>
 			 </Toolbar>

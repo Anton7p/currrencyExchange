@@ -8,8 +8,7 @@ export function CardTitle(props) {
 	return (
 		 <Toolbar>
 			 <Typography disabled
-							 className={classes.title}
-							 variant='h6'>
+							 className={classes.title}>
 				 {props.Name}
 			 </Typography>
 		 </Toolbar>
