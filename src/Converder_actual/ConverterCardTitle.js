@@ -8,7 +8,9 @@ export function ConverterCardTitle(props) {
 	if (!props.convertTo) return null
 	return (
 		 <Toolbar>
-			 <Typography className={classes.title}>
+			 <Typography disabled
+							 className={classes.title}
+							 variant='h6'>
 				 {props.id === 'from' ? props.convertFrom.Name : props.convertTo.Name}
 			 </Typography>
 		 </Toolbar>

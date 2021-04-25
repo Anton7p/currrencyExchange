@@ -17,7 +17,7 @@ export function CardInfo(props) {
 				 <Grid container  className={classes.value}>
 					 <CardInfoCharCode {...props}/>
 					 <HeightIcon className={classes.icon}/>
-					 {/*<img src={img} alt="" className={classes.icon}/>*/}
+					 <img src={img} alt="" className={classes.img}/>
 					 <CardInfoValue  {...props}/>
 				 </Grid>
 				 <CardInfoDiff {...props} className={classes.diff}/>

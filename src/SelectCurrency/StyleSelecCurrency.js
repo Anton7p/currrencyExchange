@@ -5,6 +5,9 @@ export const useStyles = makeStyles((theme) => ({
 		width: '75%',
 		borderBottom: 'none',
 		'& .MuiSelect-root': {
+			[theme.breakpoints.between('sm','sm')]: {
+				fontSize: theme.spacing(2),
+			},
 			fontSize: theme.spacing(4),
 		},
 		'& .MuiSelect-selectMenu': {

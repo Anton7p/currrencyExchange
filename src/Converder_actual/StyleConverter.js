@@ -2,18 +2,15 @@ import {makeStyles} from "@material-ui/core/styles";
 
 export const useStyles = makeStyles((theme) => ({
 	root: {
-		[theme.breakpoints.down('xs')]: {
-			marginTop: theme.spacing(11),
-		},
 		display: "flex",
-		marginTop: theme.spacing(18),
+		marginTop: theme.spacing(10),
+		top: theme.spacing(18),
 		backgroundColor: theme.palette.info.light,
 		minHeight: theme.spacing(25),
 		direction: 'row',
 		justifyContent: 'center',
 		alignItems: 'center',
-		borderRadius: theme.spacing(2),
-
+		borderRadius: theme.spacing(2)
 	},
 	grid: {
 		display: "flex",
@@ -29,28 +26,23 @@ export const useStyles = makeStyles((theme) => ({
 		borderRadius: '50%'
 	},
 	icon: {
-		[theme.breakpoints.down('xs')]: {
-			transform: 'rotate(0deg)',
-		},
 		transform: 'rotate(90deg)',
 		color: theme.palette.info.light,
 		height: theme.spacing(8),
-		fontSize: theme.spacing(4),
+		fontSize: theme.spacing(6),
 	},
 	paper: {
 		borderRadius: theme.spacing(2)
 	},
 	title: {
-		[theme.breakpoints.between('xs', 'sm')]: {
-			fontSize: theme.spacing(2),
+		[theme.breakpoints.down('md')]: {
+			fontSize: theme.spacing(1),
 		},
+
 		marginTop: theme.spacing(1),
-		fontSize: theme.spacing(3),
+
 	},
 	input: {
-		[theme.breakpoints.between('xs', 'sm')]: {
-			fontSize: theme.spacing(3),
-		},
 		fontSize: theme.spacing(4),
 		textOverflow: 'clip',
 		'& .MuiInputBase-input': {

@@ -10,7 +10,7 @@ export function Converter(props) {
 	const classes = useStyles();
 	return (
 		 <Container maxWidth="md" className={classes.root}>
-			 <Grid container spacing={2}>
+			 <Grid container>
 				 <Grid item sm={5} className={classes.paper}>
 					 <ConverterCard {...props} id={'from'}/>
 				 </Grid>

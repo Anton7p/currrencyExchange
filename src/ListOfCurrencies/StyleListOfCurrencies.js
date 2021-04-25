@@ -4,9 +4,6 @@ export const useStyles = makeStyles((theme) => ({
 	root: {
 		borderRadius: theme.spacing(1),
 		margin: theme.spacing(1),
-		[theme.breakpoints.between('sm', 'md')]: {
-			backgroundColor: 'lightgrey',
-		},
 	},
 	title: {
 		marginTop: theme.spacing(1),
@@ -20,7 +17,7 @@ export const useStyles = makeStyles((theme) => ({
 		alignItems: 'flex-end',
 	},
 	icon: {
-		[theme.breakpoints.up('sm')]: {
+		[theme.breakpoints.up('xs')]: {
 			display: 'none',
 		},
 
@@ -28,38 +25,68 @@ export const useStyles = makeStyles((theme) => ({
 		height: theme.spacing(3),
 		fontSize: theme.spacing(2),
 	},
-	container: {
-		[theme.breakpoints.between('xs', 'sm')]: {
-			flexWrap: 'nowrap',
-			justifyContent: 'space-between'
+	img: {
+		[theme.breakpoints.down('xs')]: {
+			display: 'none',
 		},
+		height: theme.spacing(8),
+	},
+	container: {
+		flexWrap: 'nowrap',
+		justifyContent: 'space-between'
 	},
 	value: {
-		[theme.breakpoints.between('xs', 'sm')]: {
+		[theme.breakpoints.between('xs', 'xs')]: {
 			maxWidth: theme.spacing(22),
-			justifyContent: 'space-between'
 		},
-
+		[theme.breakpoints.between('sm', 'sm')]: {
+			maxWidth: theme.spacing(58),
+		},
+		[theme.breakpoints.between('md', 'md')]: {
+			maxWidth: theme.spacing(70),
+		},
+		justifyContent: 'space-between'
+	},
+	currency: {
+		[theme.breakpoints.up('sm')]: {
+			fontSize: theme.spacing(5),
+		},
 	},
 	diff: {
+		display: 'flex',
+		flexWrap: 'nowrap',
+		[theme.breakpoints.up('sm')]: {
+			fontSize: theme.spacing(5),
+		},
+
 		[theme.breakpoints.between('xs', 'sm')]: {
 			marginLeft: theme.spacing(5)
 		},
 	},
 	green: {
+		display: 'flex',
 		color: theme.palette.success.main,
-
+		[theme.breakpoints.up('sm')]: {
+			fontSize: theme.spacing(4),
+		},
 	},
-	arrow:{
+	arrow: {
 		[theme.breakpoints.between('xs', 'sm')]: {
-			fontSize: theme.spacing(2.2),
-			padding: theme.spacing(0.2),
-			marginBottom:theme.spacing(0.4),
+			fontSize: theme.spacing(2.4),
+			marginTop: theme.spacing(0.2),
+		},
+		[theme.breakpoints.up('sm')]: {
+			fontSize: theme.spacing(5),
+			marginTop: theme.spacing(1),
 		},
 	},
 	red: {
+		display: 'flex',
 		color: theme.palette.secondary.main,
-	},
+		[theme.breakpoints.up('sm')]: {
+			fontSize: theme.spacing(5),
+		},
 
+	},
 }));
 

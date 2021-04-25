@@ -22,7 +22,7 @@ export function PageContent(props) {
 					 <ListOfCurrencies {...props}/>
 				 </SwitchPanel>
 				 <SwitchPanel value={actual} index={1}>
-					 <ConverterContainer{...props}/>
+					 <ConverterContainer{...props} className={classes.card}/>
 				 </SwitchPanel>
 			 </Container>
 		 </Container>
